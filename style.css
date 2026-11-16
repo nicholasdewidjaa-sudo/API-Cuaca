@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:
+        "Segoe UI",
+        system-ui,
+        -apple-system,
+        sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+}
+
+.app-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.app-header {
+    margin-bottom: 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 22px;
+}
+
+.app-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.app-header p {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.search-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-wrapper input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Dropdown Pilihan Wilayah Mendekati */
+.suggestions-box {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.suggestions-box.hidden {
+    display: none;
+}
+
+.suggestion-item {
+    padding: 11px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.15s;
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: #eff6ff;
+}
+
+.suggestion-city {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.suggestion-region {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.search-box button {
+    padding: 0 20px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-box button:hover {
+    background-color: #1d4ed8;
+}
+
+.status-message {
+    font-size: 13px;
+    margin-bottom: 15px;
+    min-height: 18px;
+}
+
+.status-message.error {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.status-message.loading {
+    color: #2563eb;
+}
+
+.weather-content.hidden {
+    display: none;
+}
+
+/* Kartu Utama Suhu */
+.main-weather-card {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.location-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.location-header span {
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+.weather-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.temp-display {
+    display: flex;
+    flex-direction: column;
+}
+
+#temperature {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.degree {
+    font-size: 20px;
+    vertical-align: super;
+}
+
+.condition-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.feels-like {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+.emoji-icon {
+    font-size: 54px;
+}
+
+/* Grid Info Detail */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 12px 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+
+.detail-icon {
+    font-size: 18px;
+}
+
+.detail-label {
+    font-size: 11px;
+    color: #64748b;
+    display: block;
+}
+
+.detail-info strong {
+    font-size: 13px;
+    color: #0f172a;
+}
+
+/* Prakiraan Per Jam */
+.hourly-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.hourly-list {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 4px 12px;
+}
+
+.hourly-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 13px;
+}
+
+.hourly-item:last-child {
+    border-bottom: none;
+}
+
+.hourly-time {
+    color: #64748b;
+    width: 50px;
+}
+
+.hourly-desc {
+    flex: 1;
+    padding-left: 10px;
+    color: #334155;
+}
+
+.hourly-temp {
+    font-weight: 600;
+    color: #0f172a;
+}
